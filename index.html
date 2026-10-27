@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diseño de Credencial</title>
+
+    <!-- CropperJS y html2canvas desde CDN -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.2/cropper.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.2/cropper.min.js"></script>
+
+    <!-- Tus estilos -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<h2>Diseño de Credencial</h2>
+
+<div id="credencial">
+    <div id="foto-container"></div>
+    <div id="nombre" class="texto">Nombre y Apellido</div>
+    <div id="dni"    class="texto">DNI: 00000000</div>
+    <div id="rol"    class="texto">Rol</div>
+</div>
+
+<form id="formulario">
+    <label for="subirFoto">Foto:</label>
+    <input type="file" id="subirFoto" accept="image/*"><br><br>
+
+    <label for="inputNombre">Nombre:</label>
+    <input type="text" id="inputNombre" placeholder="Nombre y Apellido"><br><br>
+
+    <label for="inputDni">DNI:</label>
+    <input type="text" id="inputDni" placeholder="Número de DNI"><br><br>
+
+    <div class="checkbox-group">
+        <input type="radio" id="coordinador"  name="rol" value="Coordinador">
+        <label for="coordinador">Coordinador</label>
+        <input type="radio" id="coordinadora" name="rol" value="Coordinadora">
+        <label for="coordinadora">Coordinadora</label>
+    </div><br>
+
+    <button type="button" onclick="descargarCredencial()">Descargar Credencial</button>
+</form>
+
+<!-- Modal de recorte -->
+<div id="modal-crop">
+    <div id="crop-container">
+        <img id="crop-image" src="" alt="Recorte">
+    </div>
+    <div id="crop-controls">
+        <button onclick="guardarRecorte()">Guardar Recorte</button>
+        <button onclick="cerrarModal()">Cancelar</button>
+    </div>
+</div>
+
+<!-- Tu JavaScript -->
+<script src="js/script.js"></script>
+
+</body>
+</html>
